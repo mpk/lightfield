@@ -1,0 +1,20 @@
+/**
+ *	Button
+ */
+.lfv-button {
+	background-color: @accentColor;
+	border-radius: 50%;
+	cursor: pointer;
+	height: 14px;
+	padding: 9px;
+	width: 14px;
+
+	&_disabled {
+		background-color: @iconColor;
+		cursor: default;
+	}
+
+	&:not(.lfv-button_disabled):hover, &_active {
+		background-color: @accentColorActive;
+	}
+}

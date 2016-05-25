@@ -1,0 +1,85 @@
+/**
+ *	Bottom control bar
+ */
+.lfv-controls {
+	.disable-user-select();
+
+	&__row {
+		height: 80px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	&__slider {
+		color: @textLabelColor;
+		cursor: default;
+		float: left;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 1px;
+		margin: 22px 14px 0 14px;
+		text-align: center;
+	}
+
+	&__icon {
+		display: block;
+		float: left;
+		height: 26px;
+		margin: 0 18px;
+		width: 26px;
+
+		&_focus {
+			fill: @iconColor;
+		}
+
+		&_aperture {
+			> circle {
+				fill: @iconColor;
+			}
+
+			> path {
+				fill: @backColor;
+			}
+
+			> line {
+				stroke: @backColor;
+				stroke-width: 1.05;
+			}
+		}
+	}
+
+	.lfv-slider {
+		float: left;
+	}
+
+	&__button {
+		float: left;
+		margin: 24px 8px;
+	}
+
+	&__button-icon {
+		display: block;
+		height: 14px;
+		width: 14px;
+
+		&_screen {
+			> path {
+				fill: none;
+				stroke: @backColor;
+				stroke-width: 2;
+			}
+		}
+
+		&_help {
+			> path {
+				fill: none;
+				stroke: @backColor;
+				stroke-width: 2;
+			}
+
+			> rect {
+				fill: @backColor;
+			}
+		}
+	}
+}

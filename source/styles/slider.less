@@ -1,0 +1,39 @@
+/**
+ *	Horizontal slider
+ */
+.lfv-slider {
+	height: 26px;
+
+	&__track {
+		background-color: @areaBackColor;
+		border-radius: 3px;
+		display: inline-block;
+		height: 6px;
+		margin-top: 10px;
+		position: relative;
+	}
+
+	&__handle-container {
+		height: 32px;
+		margin: -13px 0 0 -16px;
+		position: absolute;
+		width: 32px;
+
+		&:hover > .lfv-slider__handle {
+			border-color: @accentColorActive;
+		}
+	}
+
+	&__handle {
+		background-color: @backColor;
+		border: 7px solid @accentColor;
+		border-radius: 50%;
+		height: 8px;
+		margin: 5px;
+		width: 8px;
+	}
+
+	&_active .lfv-slider__handle {
+		border-color: @accentColorActive;
+	}
+}

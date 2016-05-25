@@ -1,0 +1,52 @@
+/**
+ *	Help window
+ */
+.lfv-help {
+	background-color: @windowBackColor;
+	box-shadow: 0 0 32px rgba(0, 0, 0, 0.75);
+	color: @windowTextColor;
+	line-height: 1.4;
+	margin: 0 15%;
+	position: absolute;
+	top: 10%;
+
+	&__header {
+		background-color: @windowHeaderColor;
+		height: 32px;
+		line-height: 32px;
+		padding: 12px 28px;
+	}
+
+	&__close {
+		float: right;
+	}
+
+	&__icon-close {
+		display: block;
+		height: 14px;
+		width: 14px;
+
+		> line {
+			stroke: @backColor;
+			stroke-width: 2;
+		}
+	}
+
+	&__content {
+		box-sizing: border-box;
+		font-size: 14px;
+		overflow: auto;
+		padding: 22px 28px;
+	}
+
+	&__content-splitter {
+		border-top: 1px solid @windowHeaderColor;
+		margin-top: 14px;
+		padding-top: 14px;
+	}
+
+	&__content-title {
+		font-size: 16px;
+		padding-right: 28px;
+	}
+}

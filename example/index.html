@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Light field WebGL viewer</title>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="../build/build.css" />
+	<style>
+		html, body {
+			background-color: #25272d;
+			margin: 0;
+			padding: 0;
+		}
+
+		#container {
+			font-family: 'Segoe UI', sans-serif;
+			margin: 32px auto;
+		}
+
+		#viewer {
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+		}
+
+		#controls {
+			color: #eee;
+			font-size: 14px;
+			margin: 24px 0;
+		}
+
+		.button {
+			background-color: #45474d;
+			border-radius: 4px;
+			color: #ddd;
+			cursor: pointer;
+			display: inline-block;
+			line-height: 20px;
+			padding: 8px 20px;
+			margin: 0 8px;
+		}
+
+		.button:hover {
+			background-color: #0ab783;
+			color: #000;
+		}
+
+		.link {
+			color: inherit;
+			line-height: 36px;
+			float: right;
+			margin: 0 16px;
+		}
+	</style>
+	<script src="../build/build.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			function resizeViewer() {
+				var width = Math.max(Math.min(848, window.innerWidth), 320);
+				var height = Math.min(560, width / (848 / 560));
+
+				instance.setSize(width, height);
+				document.getElementById('container').style.width = width + 'px';
+			}
+
+			var instance = new LFViewer(document.getElementById('viewer'));
+			resizeViewer();
+
+			window.addEventListener('resize', resizeViewer);
+
+			instance.load('field-cards');
+
+			document.querySelector('#file-cards').addEventListener('click', function() { instance.load('field-cards') });
+			document.querySelector('#file-chess').addEventListener('click', function() { instance.load('field-chess') });
+		});
+	</script>
+</head>
+<body>
+	<div id="container" style="width: 848px;">
+		<div id="viewer"></div>
+		<div id="controls">
+			<div class="button" id="file-cards">Light field 1</div>
+			<div class="button" id="file-chess">Light field 2</div>
+
+			<a class="link" href="https://github.com/mpk/lightfield" target="blank">Source on GitHub</a>
+			<a class="link" href="http://lightfield.stanford.edu/" target="blank">Light fields from Stanford University</a>
+		</div>
+	</div>
+</body>
+</html>

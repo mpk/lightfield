@@ -1,0 +1,64 @@
+{
+	"name": "lightfield",
+	"version": "1.0.0",
+	"description": "Light field WebGL viewer",
+	"private": true,
+	"dependencies": {
+		"arr-diff": "2.0.0",
+		"arr-flatten": "1.0.1",
+		"classnames": "2.2.1",
+		"component-emitter": "1.2.0",
+		"math": "mpk/math#bcb9309",
+		"react": "0.14.6",
+		"react-dom": "0.14.6",
+		"react-redux": "4.0.6",
+		"redux": "3.0.5",
+		"redux-actions": "0.9.0",
+		"redux-thunk": "1.0.3",
+		"screenfull": "3.0.0"
+	},
+	"devDependencies": {
+		"async": "1.5.1",
+		"babelify": "7.2.0",
+		"babel-plugin-transform-runtime": "6.3.13",
+		"babel-preset-es2015": "6.3.13",
+		"babel-preset-react": "6.3.13",
+		"babel-preset-stage-2": "6.3.13",
+		"babel-runtime": "6.3.19",
+		"brfs": "1.4.2",
+		"browserify": "12.0.1",
+		"envify": "3.4.0",
+		"jasmine-core": "2.4.1",
+		"karma": "0.13.16",
+		"karma-browserify": "4.4.2",
+		"karma-jasmine": "0.3.6",
+		"less": "2.5.3",
+		"less-plugin-clean-css": "1.5.1",
+		"mkdirp": "0.5.1",
+		"tmp": "0.0.28",
+		"uglify-js": "2.6.1",
+		"underscore": "1.8.3",
+		"yargs": "3.31.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mpk/lightfield"
+	},
+	"author": "mpk",
+	"license": "MIT",
+	"scripts": {
+		"development": "npm run development:css && npm run development:js",
+		"development:js": "browserify -e source/main.js -t babelify -t brfs -s LFViewer > build/build.js",
+		"development:css": "lessc source/styles/main.less > build/build.css",
+
+		"release": "npm run release:css && npm run release:js && node scripts/headers.js",
+		"release:js": "browserify -e source/main.js -t babelify -t brfs -g [ envify --NODE_ENV production ] -s LFViewer | uglifyjs -m -c dead_code -o build/build.js",
+		"release:css": "lessc source/styles/main.less --clean-css=\"--s0\" > build/build.css",
+
+		"test": "karma start specs/support/options.js"
+	},
+	"babel": {
+		"plugins": ["transform-runtime"],
+		"presets": ["es2015", "react", "stage-2"]
+	}
+}

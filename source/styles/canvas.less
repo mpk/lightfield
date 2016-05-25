@@ -1,0 +1,47 @@
+/**
+ *	Display canvas
+ */
+.lfv-canvas {
+	background-color: @backColor;
+	position: relative;
+
+	&__display-container {
+		margin: 0 auto;
+		position: relative;
+	}
+
+	&__display {
+		vertical-align: bottom;
+	}
+
+	&__error {
+		color: @textColor;
+		line-height: 32px;
+		margin-top: -32px;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		width: 100%;
+	}
+
+	&__error-icon {
+		height: 32px;
+		margin-right: 16px;
+		vertical-align: middle;
+		width: 32px;
+
+		> circle:first-child, > path {
+			fill: none;
+			stroke: @errorColor;
+			stroke-width: 2;
+		}
+
+		> circle {
+			fill: @errorColor;
+		}
+	}
+
+	&__error-note {
+		font-size: 12px;
+	}
+}

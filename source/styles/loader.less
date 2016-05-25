@@ -1,0 +1,27 @@
+/**
+ *	Loading indicator
+ */
+.lfv-loader {
+	left: 50%;
+	margin: -(@size / 2) 0 0 -(@size / 2);
+	position: absolute;
+	top: 50%;
+
+	&__canvas {
+		height: @size;
+		width: @size;
+	}
+
+	&__text {
+		color: @textColor;
+		font-size: 18px;
+		left: 0;
+		line-height: @size;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: @size;
+	}
+}
+
+@size: 128px;

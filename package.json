@@ -32,7 +32,7 @@
 		"karma": "0.13.16",
 		"karma-browserify": "4.4.2",
 		"karma-jasmine": "0.3.6",
-		"less": "2.5.3",
+		"less": "2.7.2",
 		"less-plugin-clean-css": "1.5.1",
 		"mkdirp": "0.5.1",
 		"tmp": "0.0.28",
@@ -47,11 +47,11 @@
 	"author": "mpk",
 	"license": "MIT",
 	"scripts": {
-		"development": "npm run development:css && npm run development:js",
+		"development": "mkdirp build && npm run development:css && npm run development:js",
 		"development:js": "browserify -e source/main.js -t babelify -t brfs -s LFViewer > build/build.js",
 		"development:css": "lessc source/styles/main.less > build/build.css",
 
-		"release": "npm run release:css && npm run release:js && node scripts/headers.js",
+		"release": "mkdirp build && npm run release:css && npm run release:js && node scripts/headers.js",
 		"release:js": "browserify -e source/main.js -t babelify -t brfs -g [ envify --NODE_ENV production ] -s LFViewer | uglifyjs -m -c dead_code -o build/build.js",
 		"release:css": "lessc source/styles/main.less --clean-css=\"--s0\" > build/build.css",
 

@@ -33,7 +33,7 @@ In order to run the bundled example, it is necessary to build the viewer files:
 
 - Install [node.js](https://nodejs.org/).
 
-- In the project root folder, create a folder named `build` and run:
+- In the project root folder, run:
 ```bash
 npm install
 
